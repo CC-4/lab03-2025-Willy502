@@ -261,17 +261,19 @@ public class Lexer {
 		/* 11 */ YY_NO_ANCHOR,
 		/* 12 */ YY_NO_ANCHOR,
 		/* 13 */ YY_NO_ANCHOR,
-		/* 14 */ YY_NO_ANCHOR
+		/* 14 */ YY_NO_ANCHOR,
+		/* 15 */ YY_NOT_ACCEPT,
+		/* 16 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"13:9,12:2,13:2,0,13:18,12,13:4,6,13:2,8,9,4,2,13,3,13,5,11:10,13,1,13:34,7," +
-"13:31,10,13,14:2")[0];
+"14:9,13:2,14:2,0,14:18,13,14:4,6,14:2,8,9,4,2,14,3,12,5,11:10,14,1,14:34,7," +
+"14:31,10,14,15:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,15,
-"0,1:10,2,1:3")[0];
+	private int yy_rmap[] = unpackFromString(1,17,
+"0,1:10,2,1:3,3:2")[0];
 
-	private int yy_nxt[][] = unpackFromString(3,15,
-"-1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,-1:26,11,-1:3");
+	private int yy_nxt[][] = unpackFromString(4,16,
+"-1,1,2,3,4,5,6,7,8,9,10,11,12,13,12,14,-1:27,11,15,-1:14,16,-1:4");
 
 	public Token nextToken ()
 		throws java.io.IOException {
@@ -362,17 +364,21 @@ public class Lexer {
 					case -12:
 						break;
 					case 12:
-						{ /* NO HACER NADA */             }
+						{ return new Token(Token.ERROR);
+                      /* todo lo demas es ERROR */ }
 					case -13:
 						break;
 					case 13:
-						{ return new Token(Token.ERROR);
-                      /* todo lo demas es ERROR */ }
+						{ /* NO HACER NADA */             }
 					case -14:
 						break;
 					case 14:
 						
 					case -15:
+						break;
+					case 16:
+						{ return new Token(Token.NUMBER, yytext());   }
+					case -16:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);

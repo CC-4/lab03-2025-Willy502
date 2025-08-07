@@ -91,7 +91,7 @@ MOD = "%"
 EXP = "^"
 LPAREN = "("
 RPAREN = ")"
-NUMBER = [0-9]+
+NUMBER = ([0-9]+)([.]([0-9]+))?
 UNARY = "~"
 WHITE = (" "|\t|\n)
 
